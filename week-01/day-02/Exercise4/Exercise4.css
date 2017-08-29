@@ -1,0 +1,20 @@
+.container {
+    position: relative;
+    width: 800px;
+    height: 600px;
+    margin: 0 auto;
+    background: radial-gradient(#c46943, #ee5520);
+}
+
+.box {
+    height: 300px;
+    width: 700px;
+    position: absolute;
+    top: 150px;
+    left: 50px;
+    background-color: #c46943;
+    box-shadow: 10px 10px 10px 1px rgba(0, 0, 0, 0.6);
+    border-radius: 20px;
+    border: 1px solid white;
+    opacity: 0.5;
+}

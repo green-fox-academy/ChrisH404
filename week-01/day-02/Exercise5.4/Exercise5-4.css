@@ -1,0 +1,34 @@
+body {
+    margin: 0;
+}
+
+body>div {
+    width: 150px;
+    background-color: #ccc;
+}
+
+body>div::after {
+    clear: both;
+    display: block;
+}
+
+div>div {
+    height: 50px;
+    width: 50px;
+    font-size: 20px;
+    float: left;
+}
+
+div::after {
+    content: attr(data-count);
+    color: white;
+    margin: 5px;
+}
+
+div div:nth-child(odd) {
+    background-color: #666;
+}
+
+div div:nth-child(even) {
+    background-color: #999;
+}

@@ -1,0 +1,16 @@
+div {
+    font-weight: bold;
+}
+
+p {
+    background-color: #F9F900;
+}
+
+div .asteroid {
+    border: 1px solid;
+    border-color: #548C00;
+}
+
+.big {
+    color: #0000E3;
+}

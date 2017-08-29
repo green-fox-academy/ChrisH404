@@ -1,0 +1,49 @@
+header {
+    height: 100px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: purple;
+}
+
+nav a {
+    width: 120px;
+    background-color: aqua;
+    margin: 30px 10px;
+    text-align: center;
+    display: inline-block;
+    padding: 10px 0;
+    color: white;
+}
+
+nav a:first-child {
+    margin-left: 20px;
+}
+
+.main {
+    margin: 110px 40px 10px;
+}
+
+.sidebar {
+    background-color: green;
+    float: left;
+    height: 600px;
+    width: 400px;
+    margin-left: 20px;
+}
+
+.content {
+    background-color: yellow;
+    float: left;
+    margin: 0 0 10px 20px;
+    height: 600px;
+    width: 724px;
+}
+
+footer {
+    clear: both;
+    background-color: gray;
+    height: 100px;
+    margin: 10px 60px;
+}

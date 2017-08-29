@@ -1,0 +1,27 @@
+.container {
+    position: relative;
+    width: 800px;
+    height: 600px;
+    margin: 0 auto;
+    background: radial-gradient(#c46943, #ee5520);
+}
+
+.button {
+    position: absolute;
+    height: 100px;
+    width: 250px;
+    top: 250px;
+    font-size: 30px;
+    line-height: 100px;
+    text-align: center;
+}
+
+.left {
+    left: 125px;
+    background: linear-gradient(to right, #4e4f95, #6062b7);
+}
+
+.right {
+    left: 425px;
+    background: linear-gradient(to right, #afab28, #d9d332);
+}

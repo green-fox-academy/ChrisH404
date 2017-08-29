@@ -1,0 +1,47 @@
+body {
+    width: 680px;
+    height: 600px;
+    margin: 0 300px;
+}
+
+header {
+    background-color: aqua;
+    height: 100px;
+}
+
+.main>div {
+    float: left;
+    height: 400px;
+}
+
+.left_sidebar {
+    background-color: orange;
+    width: 160px;
+}
+
+.content {
+    background-color: red;
+    width: 300px;
+    margin: 0 30px;
+    position: relative;
+}
+
+.black {
+    background-color: black;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.right_sidebar {
+    background-color: purple;
+    width: 160px;
+}
+
+footer {
+    clear: both;
+    background-color: blue;
+    height: 100px;
+}

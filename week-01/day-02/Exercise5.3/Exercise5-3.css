@@ -1,0 +1,19 @@
+body {
+    margin: 0;
+}
+
+div>div {
+    height: 50px;
+    background-color: #666;
+    font-size: 20px;
+}
+
+div+div {
+    margin-top: 10px;
+}
+
+div::after {
+    content: attr(data-count);
+    color: white;
+    margin: 5px;
+}

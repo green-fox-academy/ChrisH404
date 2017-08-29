@@ -1,0 +1,39 @@
+.main {
+    width: 600px;
+}
+
+.header {
+    height: 40px;
+    background-color: black;
+    color: white;
+}
+
+.header span {
+    margin: 0 10px;
+    line-height: 40px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.content {
+    background-color: #EE5520;
+    padding: 10px 60px;
+}
+
+.quiz {
+    text-align: center;
+}
+
+.options {
+    height: 40px;
+    text-align: center;
+}
+
+input {
+    min-width: 100px;
+    width: auto;
+    background-color: yellow;
+    padding: 10px;
+}
