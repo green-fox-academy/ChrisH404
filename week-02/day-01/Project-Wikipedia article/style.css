@@ -1,6 +1,7 @@
 body {
     height: 100%;
     font-family: sans-serif;
+    background-color: #f6f6f6;
 }
 
 main {
@@ -8,11 +9,18 @@ main {
     border-right-width: 0;
     margin-left: 168px;
     padding: 20px 24px 24px;
+    clear: both;
+    background-color: white;
+}
+
+h1 {
+    border-bottom: 1px solid #a2a9b1;
+    margin: 10px 0;
 }
 
 a {
     text-decoration: none;
-    color: blue;
+    color: #0645ad;
 }
 
 .sidebar {
@@ -33,7 +41,7 @@ a {
 }
 
 .portal {
-    margin-left: 12px;
+    margin: 20px 0 0 12px;
 }
 
 .sidebar ul {
@@ -61,10 +69,81 @@ a {
     background-repeat: no-repeat;
 }
 
+header {
+    margin-top: 60px;
+}
+
 header a {
     padding: 0 6px;
 }
 
+.left_header {
+    float: left;
+}
+
+.right_header {
+    float: right;
+}
+
+
+/*header nav {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAuCAIAAABmjeQ9AAAAQ0lEQVR4AWVOhQEAIAzC/X+xAXbXeoDFGA3A9yk1n4juBROcUegfarWjP3ojZvEzxs6j+nygmo+zzsk79nY+tOxdEhlf3UHVgUFrVwAAAABJRU5ErkJggg==);
+    background-position: bottom right;
+}*/
+
 .left_nav {
-    margin: 60px 0 0 168px;
+    margin: 0 0 0 168px;
+}
+
+.right_nav {
+    float: right;
+}
+
+.search {
+    margin: 0 16px 0 8px;
+    float: right;
+}
+
+#searchform {
+    height: 24px;
+    width: 15em;
+    min-width: 80px;
+    position: relative;
+}
+
+#searchform input:first-child {
+    width: 100%;
+}
+
+#searchform input:last-child {
+    background-image: linear-gradient(transparent, transparent), url(data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2213%22%3E%3Cg%20stroke-width%3D%222%22%20stroke%3D%22%236c6c6c%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M11.29%2011.71l-4-4%22%2F%3E%3Ccircle%20cx%3D%225%22%20cy%3D%225%22%20r%3D%224%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E);
+    background-position: center;
+    background-repeat: no-repeat;
+    text-indent: -999px;
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    border: 1px;
+}
+
+.body_content {
+    position: relative;
+    font-size: 0.875em;
+}
+
+.hatnote {
+    margin: 20px 0 8px 20px;
+    font-style: italic;
+}
+
+.infotable {
+    border: 1px solid #a2a9b1;
+    width: 20em;
+    background-color: #f8f9fa;
+    float: right;
+    clear: right;
+    padding: 0.2em;
+    margin: 0.5em 0 0.5em 1em;
 }
