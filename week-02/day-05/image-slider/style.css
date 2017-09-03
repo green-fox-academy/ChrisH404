@@ -1,0 +1,88 @@
+body {
+  background: linear-gradient(to right,#C4C4C4,#F3F3F3,#C4C4C4);
+}
+
+.container {
+  height: 450px;
+  width: 1000px;
+  margin: 80px auto 10px;
+  background-color: white;
+} 
+
+/* arrow style */
+
+.arrow {
+  height:450px;
+  width:100px;
+  background: url('arrow.svg') no-repeat center;
+}
+
+.arrow:hover {
+  cursor: pointer;
+}
+
+.left_arrow {
+  float:left;
+  box-shadow: -2px 2px 6px 3px #A4A4A4;
+}
+
+.right_arrow{
+  float:right;
+  box-shadow: 2px -2px 6px 3px #A4A4A4;
+}
+
+svg:hover {
+  fill: #D0D0D0;
+}
+
+.right_arrow{
+  transform: rotate(180deg);
+}
+
+/* slide style */
+
+.slide {
+  height: 450px;
+  width:800px;
+  margin: 0 100px;
+  position: relative;
+  box-shadow: 0px 2px 6px 3px #A4A4A4;
+}
+
+.slide img {
+  width:800px;
+}
+
+.description {
+  padding:10px;
+  box-sizing: border-box;
+  width:100%;
+  position: absolute;
+  bottom: 0;
+  opacity: 0.5;
+  color: white;
+  background: black;
+} 
+
+/* thumbnails style */
+
+.thumbnails {
+  margin: 5px 160px;
+}
+
+.small_img {
+  height: 50px;
+  width:80px;
+  margin:10px;
+  border: 3px solid white;
+  box-shadow: 3px 3px 6px 3px #A4A4A4;
+} 
+
+.thumbnails img:hover {
+  cursor: pointer;
+  box-shadow: 3px 3px 6px 3px orange;
+}
+
+.selected {
+  border-color: #68d6a7;
+}
