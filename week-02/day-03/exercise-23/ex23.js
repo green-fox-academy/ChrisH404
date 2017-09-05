@@ -5,7 +5,7 @@
 // - Print the fourth element as a test
 
 var s = [1, 2, 3, 8, 5, 6];
-var half = s.map(function(item, index) {
-    return item / 2;
+var half = s.map(function(item) {
+    return item === 8 ? item / 2 : item;
 });
-console.log(half[3]);
+console.log(half);

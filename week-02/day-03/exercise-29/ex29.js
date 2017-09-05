@@ -14,7 +14,6 @@
 // ** Relax, a matrix is just like an array
 
 var x = 4;
-
 function matrix(length) {
     var matrix = new Array(length);
     for (var i = 0; i < length; i++) {
@@ -24,7 +23,5 @@ function matrix(length) {
     }
     return matrix;
 }
-
 matrix(x);
-
 console.log(matrix(x));

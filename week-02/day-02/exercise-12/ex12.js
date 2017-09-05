@@ -5,10 +5,12 @@
 //
 // Surface Area: 600
 // Volume: 1000
-var a = 2.3;
-var b = 2.3;
-var c = 3.5;
-var area = a * b * c;
-var volume = (a + b + c) * 4;
-console.log("Surface Area: " + area);
+var length = 2.3;
+var width = 2.3;
+var height = 3.5;
+
+var surfaceArea = (length * width + length * height + height * width) * 2;
+var volume = length * width * height;
+
+console.log("Surface Area: " + surfaceArea);
 console.log("Volume: " + volume);

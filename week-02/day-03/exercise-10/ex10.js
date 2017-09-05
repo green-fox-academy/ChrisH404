@@ -1,7 +1,7 @@
 'use strict';
 
 var lineCount = 6;
-
+var percent = "%";
 
 // Write a program that draws a
 // square like this:
@@ -15,20 +15,20 @@ var lineCount = 6;
 // %%%%%%
 //
 // The square should have as many lines as lineCount is
-var full = new Array(lineCount);
-var part = new Array(lineCount);
-full.fill("%");
-console.log(full.join(""));
+var topBottomLine = new Array(lineCount);
+var middleLine = new Array(lineCount);
+topBottomLine.fill(percent);
+console.log(topBottomLine.join(""));
 if (lineCount >= 3) {
-    part.fill(" ");
-    part[0] = part[1] = part[lineCount - 1] = "%";
-    console.log(part.join(""));
+    middleLine.fill(" ");
+    middleLine[0] = middleLine[1] = middleLine[lineCount - 1] = percent;
+    console.log(middleLine.join(""));
 }
 for (var i = 2; i < lineCount - 1; i++) {
-    part[i] = "%";
-    part[i - 1] = " ";
-    console.log(part.join(""));
+    middleLine[i] = percent;
+    middleLine[i - 1] = " ";
+    console.log(middleLine.join(""));
 }
 if (lineCount > 1) {
-    console.log(full.join(""));
+    console.log(topBottomLine.join(""));
 }

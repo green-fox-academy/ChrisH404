@@ -5,9 +5,11 @@
 function sum(int) {
     if (int === 0) {
         return 0;
-    } else {
+    } else if (int > 0){
         return int + sum(int - 1);
+    }else {
+        return "Please input a positive number!";
     }
 }
 
-console.log(sum(0));
+console.log(sum(8));

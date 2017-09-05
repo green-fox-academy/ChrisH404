@@ -5,7 +5,7 @@
 // - Log the result of `doubling(ak)` to the console
 var ak = 123;
 
-function doubling(para) {
-    return 2 * para;
+function doubling(number) {
+    return 2 * number;
 }
 console.log(doubling(ak));

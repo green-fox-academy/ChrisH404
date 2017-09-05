@@ -4,7 +4,7 @@
 //   that returns it's input's factorial
 function factorio(int) {
     if (int < 0) {
-        return 0;
+        return undefined;
     } else if (int === 0) {
         return 1;
     } else {
@@ -12,4 +12,4 @@ function factorio(int) {
     }
 }
 
-console.log(factorio(4));
+console.log(factorio(5));

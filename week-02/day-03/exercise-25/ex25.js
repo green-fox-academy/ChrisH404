@@ -6,7 +6,7 @@
 // - try to use built in functions instead of loops
 
 var animals = ["dog", "cat", "kitten"];
-var animalsS = animals.map(function(item, index) {
+var animals = animals.map(function(item) {
     return item += "s";
 });
-console.log(animalsS);
+console.log(animals);

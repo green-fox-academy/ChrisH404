@@ -7,11 +7,11 @@
 // - Greet `al`
 var al = "EPAM";
 
-function greet(para) {
-    if (para) {
+function greet(person) {
+    if (person) {
         console.log("Greetings, dear " + al);
     } else {
-        console.log("****");
+        console.log("Anonymous");
     }
 }
 greet(al);
