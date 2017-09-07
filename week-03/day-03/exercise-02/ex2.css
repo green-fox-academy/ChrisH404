@@ -1,0 +1,14 @@
+.button-container{
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.button-container button{
+  margin: 0 auto;
+  width:60px;
+}
+
+td {
+  width:200px;
+  text-align: center;
+}
