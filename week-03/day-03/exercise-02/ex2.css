@@ -8,7 +8,7 @@
   width:60px;
 }
 
-td {
+td,th {
   width:200px;
   text-align: center;
 }

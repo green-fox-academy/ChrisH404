@@ -7,14 +7,12 @@ var urlObj = {
   'page': 1,
   'pageSize': 10
 }
-function getUrl(page) {
-  if (page <= 0) {
+function getUrl() {
+  if (urlObj.page <= 0) {
     urlObj.page = FIRSTPAGE;
-  }else if (page > LASTPAGE) {
+  }else if (urlObj.page > LASTPAGE) {
     urlObj.page = LASTPAGE;
-  }else {
-    urlObj.page = page;
-  } 
+  }
   return urlObj.url + "page=" + urlObj.page + "&pageSize=" + urlObj.pageSize;
 }
 
@@ -26,11 +24,12 @@ var buttonObj = {
   'first': document.querySelector('#First'),
   'last': document.querySelector('#Last')
 }
-var tablerowList = document.querySelectorAll('tr');
+var talbeBody = document.querySelector('tbody');
 
 function sendRequest(page) {
   return function() {
-    http.open('GET', getUrl(page));
+    urlObj.page += page;
+    http.open('GET', getUrl());
     http.send();
     http.onreadystatechange = getResult;
   }
@@ -39,17 +38,28 @@ function sendRequest(page) {
 function getResult() {
   if (http.readyState === XMLHttpRequest.DONE && http.status === 200){
     var data = JSON.parse(http.response);
+    talbeBody.innerHTML = "";
     data.forEach(function(character, index) {
-      tablerowList[index + 1].cells[0].textContent = character.name;
-      tablerowList[index + 1].cells[1].textContent = character.gender;
-      tablerowList[index + 1].cells[2].textContent = character.culture;
-      tablerowList[index + 1].cells[3].textContent = character.url;
+      var tr = document.createElement('tr');
+      var td1 = document.createElement('td');
+      td1.textContent = character.name;
+      var td2 = document.createElement('td');
+      td2.textContent = character.gender;
+      var td3 = document.createElement('td');
+      td3.textContent = character.culture;
+      var td4 = document.createElement('td');
+      td4.textContent = character.url;
+      tr.appendChild(td1);
+      tr.appendChild(td2);
+      tr.appendChild(td3);
+      tr.appendChild(td4);
+      talbeBody.appendChild(tr);
     });
   }
 }
 
-buttonObj.first.addEventListener('click', sendRequest(FIRSTPAGE));
+buttonObj.first.addEventListener('click', sendRequest(-LASTPAGE));
 buttonObj.last.addEventListener('click', sendRequest(LASTPAGE));
-buttonObj.previous.addEventListener('click', sendRequest(urlObj.page - 1));
-buttonObj.next.addEventListener('click', sendRequest(urlObj.page + 1));
+buttonObj.previous.addEventListener('click', sendRequest(-1));
+buttonObj.next.addEventListener('click', sendRequest(1));
 

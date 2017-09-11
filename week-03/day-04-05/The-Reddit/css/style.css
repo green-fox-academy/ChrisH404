@@ -1,0 +1,69 @@
+.main-content {
+  color:#bbbbbb;
+  border-top: 2px solid #3F6F98;
+  width:100%;
+}
+
+div a {
+  text-decoration: none;
+}
+.center {
+  text-align: center;
+}
+
+td {
+  padding:5px;
+}
+
+.upvote {
+  height:16px;
+  background-image: url('../images/upvote.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.upvote:hover {
+  cursor: pointer;
+} 
+
+.upvoted {
+  background-image: url('../images/upvoted.png');
+}
+
+.downvote {
+  height:16px;
+  background-image: url('../images/downvote.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.downvote:hover {
+  cursor: pointer;
+} 
+
+.downvoted {
+  background-image: url('../images/downvoted.png');
+}
+.small-text {
+  font-size: 80%;
+}
+
+.new-post {
+  width: 600px;
+  padding: 10px;
+  border-top: 3px solid #6096C4;
+}
+
+.yellow-area {
+  background-color: #F0EA8A;
+  border: 1px solid #D7691C;
+}
+
+.information {
+  margin: 5px 0;
+  background-color: #76BBCA;
+  padding: 5px 5px 10px;;
+}
+.long {
+  width: 580px;
+}
