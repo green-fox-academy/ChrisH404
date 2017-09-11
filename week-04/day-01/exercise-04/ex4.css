@@ -1,0 +1,42 @@
+body {
+  height: 600px;
+  width:1000px;
+  margin:0 auto;
+}
+
+.nav-container {
+  display: flex;
+  background-color: #BD22BD;
+  width:100%;
+  height:100px;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style-type: none;
+  background-color: aqua;
+  margin: 0 10px;
+  height:50px;
+  width:100px;
+}
+
+.content-container {
+  display: flex;
+}
+
+.content-container div {
+  height:500px;
+}
+
+.content {
+  background-color: yellow;
+  flex-grow: 3;
+}
+
+.sidebar {
+  background-color: #21C221;
+  flex-grow: 2;
+}
