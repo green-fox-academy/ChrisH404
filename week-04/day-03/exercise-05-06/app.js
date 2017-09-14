@@ -29,19 +29,7 @@ app.get('/students', function(req, res) {
       fieldStr[item] = true;
     });
   }
-  MongoClient.connect(url, function (err, db) {
-    if (err) {
-      console.log('Unable to connect to the MongoDB server. Error:', err);
-    }
-    console.log('Connection established to ' + url);
-    selectData(db, whereStr, fieldStr, function(result) {
-      obj = {
-        'students': result
-      }
-      res.send(obj);
-    });
-    db.close();
-  });
+  connectDatabase(whereStr, fieldStr, obj, res);
 });
 
 app.get('/students/:name', function(req, res) {
@@ -64,6 +52,10 @@ app.get('/students/:name', function(req, res) {
   if (name) {
     whereStr['name'] = name;
   }
+  connectDatabase(whereStr, fieldStr, obj, res);
+});
+
+function connectDatabase(whereStr, fieldStr, obj, res) {
   MongoClient.connect(url, function (err, db) {
     if (err) {
       console.log('Unable to connect to the MongoDB server. Error:', err);
@@ -77,7 +69,7 @@ app.get('/students/:name', function(req, res) {
     });
     db.close();
   });
-});
+}
 
 function selectData(db, whereStr, fieldStr, callback) {
   var collection = db.collection('students');
