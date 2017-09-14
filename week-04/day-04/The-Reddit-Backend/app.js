@@ -24,8 +24,10 @@ app.get('/posts', function(req, res) {
     'error': 'Get posts failed!'
   };
   var whereStr = {};
-  var fieldStr = {_id: false};
-  database.queryDatabase(res, obj, whereStr, fieldStr);
+  var fieldStr = {};
+  database.queryDatabase(obj, whereStr, fieldStr, function(result) {
+    res.send(result);
+  });
 });
 
 // add posts
@@ -38,5 +40,23 @@ app.post('/posts', jsonParser, function(req, res) {
     'owner': null,
     'vote':0
   }
-  database.insertIntoDB(obj, res);
+  database.insertIntoDB(obj, function(result) {
+    res.send(result);
+  });
+});
+
+// upvote
+app.put('/posts/:id/upvote', function(req, res) {
+  var _id = req.params.id;
+  database.votePosts(_id, res, 'upvote', function(result) {
+    res.send(result);
+  });
+});
+
+// downvote
+app.put('/posts/:id/downvote', function(req, res) {
+  var _id = req.params.id;
+  database.votePosts(_id, res, 'downvote', function(result) {
+    res.send(result);
+  });
 });
