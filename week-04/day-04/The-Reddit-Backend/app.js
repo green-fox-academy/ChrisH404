@@ -3,6 +3,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var mongodb = require('mongodb');
+var database = require('./db.js');
 
 var app = express();
 var port = 3000;
@@ -17,35 +18,25 @@ app.get('/hello', function(req, res) {
   res.send('hello world');
 });
 
+// get posts
 app.get('/posts', function(req, res) {
   var obj = {
     'error': 'Get posts failed!'
   };
   var whereStr = {};
   var fieldStr = {_id: false};
-  queryDatabase(res, obj, whereStr, fieldStr);
+  database.queryDatabase(res, obj, whereStr, fieldStr);
 });
 
-function queryDatabase(res, obj, whereStr, fieldStr) {
-  MongoClient.connect(url, function (err, db) {
-    selectData(db, whereStr, fieldStr, function(result) {
-      console.log(result);
-      obj = {
-        'posts': result
-      }
-      res.send(obj);
-    });
-    db.close();
-  });
-}
-
-function selectData(db, whereStr, fieldStr, callback) {
-  var collection = db.collection('posts');
-  collection.find(whereStr, fieldStr).toArray(function(err, result) {
-    if(err){
-      console.log('Error:'+ err);
-      return;
-    }     
-    callback(result);
-  });
-}
+// add posts
+app.post('/posts', jsonParser, function(req, res) {
+  var obj = {
+    'title': req.body.title,
+    'href': req.body.href,
+    'timestamp': Date.parse(new Date()),
+    'score': 0,
+    'owner': null,
+    'vote':0
+  }
+  database.insertIntoDB(obj, res);
+});
