@@ -6,6 +6,7 @@ var ObjectId = require('mongodb').ObjectId;
 var MongoClient = mongodb.MongoClient;
 var url = 'mongodb://localhost:27017/reddit';
 
+// get posts
 function queryDatabase(obj, whereStr, fieldStr, callback) {
   MongoClient.connect(url, function (err, db) {
     selectData(db, whereStr, fieldStr, function(result) {
@@ -29,6 +30,7 @@ function selectData(db, whereStr, fieldStr, callback) {
   });
 }
 
+// add posts
 function insertIntoDB(obj, callback) {
   MongoClient.connect(url, function (err, db) {
     insertData(db, obj, function(result) {
@@ -49,7 +51,8 @@ function insertData(db, obj, callback) {
   });
 }
 
-function votePosts(_id, res, voteType, callback) {
+// upvote & downvote
+function votePosts(_id, voteType, callback) {
   var whereStr = {'_id': ObjectId(_id)};
   var fieldStr = {};
   var updateStr = {};
@@ -70,6 +73,7 @@ function votePosts(_id, res, voteType, callback) {
 
 function updateData(db, whereStr, updateStr) {
   var collection = db.collection('posts');
+  updateStr.timestamp = Date.parse(new Date());
   collection.update(whereStr,updateStr, function(err) {
     if(err){
       console.log('Error:'+ err);
@@ -78,8 +82,51 @@ function updateData(db, whereStr, updateStr) {
   });
 }
 
+// delete posts
+function deletePosts(_id, callback) {
+  var whereStr = {'_id': ObjectId(_id)};
+  var fieldStr = {};
+  MongoClient.connect(url, function (err, db) {
+    selectData(db, whereStr, fieldStr, function(result) {
+      deleteData(db, whereStr);
+      callback(result);
+      db.close();
+    });
+  });
+}
+
+function deleteData(db, whereStr) {
+  var collection = db.collection('posts');
+  console.log(whereStr);
+  collection.remove(whereStr, function(err) {
+    if(err){
+      console.log('Error:'+ err);
+      return;
+    }
+  });
+}
+
+// modify posts
+function modifyPosts(obj, callback) {
+  var whereStr = {'_id': ObjectId(obj._id)};
+  var fieldStr = {};
+  var updateStr = {};
+  MongoClient.connect(url, function (err, db) {
+    selectData(db, whereStr, fieldStr, function(result) {
+      updateStr = result[0];
+      updateStr.title = obj.title;
+      updateStr.href = obj.href;
+      updateData(db, whereStr, updateStr)
+      callback(updateStr);
+      db.close();
+    });
+  });
+}
+
 module.exports = {
   queryDatabase: queryDatabase,
   insertIntoDB: insertIntoDB,
-  votePosts: votePosts
+  votePosts: votePosts,
+  deletePosts: deletePosts,
+  modifyPosts: modifyPosts
 };
