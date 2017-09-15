@@ -2,7 +2,6 @@
 
 var express = require('express');
 var bodyParser = require('body-parser');
-var mongodb = require('mongodb');
 var database = require('./db.js');
 
 var app = express();
@@ -10,9 +9,6 @@ var port = 3000;
 var jsonParser = bodyParser.json();
 
 app.use(express.static('public_html'));
-
-var MongoClient = mongodb.MongoClient;
-var url = 'mongodb://localhost:27017/reddit';
 
 app.listen(port);
 
@@ -39,7 +35,7 @@ app.post('/posts', jsonParser, function(req, res) {
     'href': req.body.href,
     'timestamp': Date.parse(new Date()),
     'score': 0,
-    'owner': null,
+    'owner': req.headers.username ? req.headers.username : null,
     'vote':0
   }
   database.insertIntoDB(obj, function(result) {
@@ -66,7 +62,8 @@ app.put('/posts/:id/downvote', function(req, res) {
 // delete
 app.delete('/posts/:id', function(req, res) {
   var _id = req.params.id;
-  database.deletePosts(_id, function(result) {
+  var username = req.headers.username ? req.headers.username : null;
+  database.deletePosts(_id, username, function(result) {
     res.send(result);
   });
 });
@@ -76,7 +73,8 @@ app.put('/posts/:id', jsonParser, function(req, res) {
   var obj = {
     '_id': req.params.id,
     'title': req.body.title,
-    'href': req.body.href
+    'href': req.body.href,
+    'owner': req.headers.username ? req.headers.username : null
   }
   database.modifyPosts(obj, function(result) {
     res.send(result);

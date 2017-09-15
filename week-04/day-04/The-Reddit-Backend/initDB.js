@@ -13,6 +13,9 @@ MongoClient.connect(url, function (err, db) {
   insertData(db, function(result) {
     console.log(result);
   });
+  insertUsers(db, function(result) {
+    console.log(result);
+  });
   db.close();
 });
 
@@ -36,6 +39,27 @@ function insertData(db, callback) {
       "score": 567,
       "owner": "kristof4",
       "vote": -1
+    }
+  ];
+  collection.insert(data, function(err, result) { 
+    if(err){
+      console.log('Error:'+ err);
+      return;
+    }     
+    callback(result);
+  });
+}
+
+function insertUsers(db, callback) {
+  var collection = db.collection('user');
+  var data = [
+    {
+      "username": "chris huang",
+      "password": "password"
+    },
+    {
+      "username": "Illidan Stormrage",
+      "password": "azeroth"
     }
   ];
   collection.insert(data, function(err, result) { 
