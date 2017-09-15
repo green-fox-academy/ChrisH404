@@ -88,8 +88,9 @@ function deletePosts(_id, username, callback) {
   MongoClient.connect(url, function (err, db) {
     selectData(db, whereStr, fieldStr, function(result) {
       if (result[0].owner === username || !result[0].owner) {
-        deleteData(db, whereStr);
-        callback(result[0]);
+        deleteData(db, whereStr, function() {
+          callback(result[0]);
+        });
       }else {
         callback({'error': 'You have no right to delete this post!'});
       }
@@ -98,13 +99,14 @@ function deletePosts(_id, username, callback) {
   });
 }
 
-function deleteData(db, whereStr) {
+function deleteData(db, whereStr, callback) {
   var collection = db.collection('posts');
   collection.remove(whereStr, function(err) {
     if(err){
       console.log('Error:'+ err);
       return;
     }
+    callback();
   });
 }
 
