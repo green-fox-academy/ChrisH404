@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Github Repository Lookup</title>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="https://github.com">GitHub</a>
+        <a href="https://developer.mozilla.org">MDN</a>
+        <a href="https://stackoverflow.com">Stack Overflow</a>
+      </nav>
+    </header>
+    <div class="main-div">
+      <div class="search">greenfox-academy/<input id="search-key" type="text" placeholder="repository name"><button id="search">Go</button></div>
+      <div class="main-content">
+        <div class="right-sidebar">
+          <div class="login">
+            <p>Authenticate</p>
+            <input type="text" id="username" placeholder="Username"><br>
+            <input type="text" id="token" placeholder="Token"><br>
+            <button>login</button>
+          </div>
+          <div class="user hide">
+            <p>Logged in as</p>
+            <p>User: ChrisH404</p>
+            <button>logout</button>
+          </div>
+          <div class="recommended"></div>
+        </div>
+        <div class="repository-info">
+          <div class="description"></div>
+          <div class="commits"></div>
+        </div>
+      </div>
+    </div>
+    <script src="./dist/bundle.js"></script>
+  </body>
+</html>
