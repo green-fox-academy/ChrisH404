@@ -85,9 +85,12 @@ function Director(name, age, salary, department, hiredAt, level) {
 }
 
 Director.prototype = Object.create(Developer.prototype);
+//Director.prototype = new Developer;
+//Director.prototype = new Developer();
 Director.prototype.constructor = Director;
 
 var chris = new Director('chris', 24, 100, 'dev', '2017.7.14', 1);
 console.log(chris);
 console.log(chris instanceof Person);
+console.log(chris instanceof Director);
 console.log(Object.getPrototypeOf(chris));
